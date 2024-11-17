@@ -129,8 +129,10 @@ This API can be integrated with any front-end application such as React, Vue, or
 
 If you want to use this API with React, here's the front-end repository you can check out:
 
-React Front-End ToDo App
+
+- Clone the [React Front-End ToDo App](https://github.com/HebaAbdElhamed/To-Do-List).
 
 
-Author
-Created by Heba AbdElhamed.
+## Author
+Created by [Heba AbdElhamed](https://github.com/HebaAbdElhamed).
+
