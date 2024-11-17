@@ -33,7 +33,7 @@ Clone the repository to your local machine:
 
 ### 3. Install dependencies using Composer
 
-Make sure Composer is installed on your machine. If not, you can install it from here.
+Make sure Composer is installed on your machine.
 
 Install all the PHP dependencies:
 
