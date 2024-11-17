@@ -1,66 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# To-Do List API with Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a RESTful API built with **Laravel** for To Do tasks. The API allows you to perform CRUD operations (Create, Read, Update, Delete) on tasks, which can be consumed by any front-end application or client (e.g., React, Vue, mobile apps, etc.).
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Add Tasks**: Add new tasks by providing a name.
+- **Edit Tasks**: Edit the name of an existing task.
+- **Delete Tasks**: Delete individual tasks.
+- **Delete All Tasks**: Delete all tasks in the database.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technologies Used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Laravel**: PHP framework for building the API.
+- **RESTful API**: Standard approach for API design (GET, POST, PUT, DELETE).
+- **MySQL** (or any database you configure): Used for storing tasks.
 
-## Learning Laravel
+## Setup Instructions
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Follow these steps to set up the API on your local machine:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Clone the repository
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Clone the repository to your local machine:
 
-## Laravel Sponsors
+    ```bash
+    git clone https://github.com/HebaAbdElhamed/Laravel-Todo-API.git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+### 2. Navigate to the project directory
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    cd Laravel-Todo-API
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Install dependencies using Composer
 
-## Code of Conduct
+Make sure Composer is installed on your machine. If not, you can install it from here.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Install all the PHP dependencies:
 
-## Security Vulnerabilities
+    composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+### 4. Configure your environment
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Copy the .env.example file to create a .env file:
+
+    cp .env.example .env
+
+Edit the .env file to configure your database connection:
+
+   
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=task_manager_db
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+Make sure to replace task_manager_db with your own database name, and update the DB_USERNAME and DB_PASSWORD based on your MySQL settings
+
+
+### 5.  Run database migrations
+
+To create the necessary tables in your database, run:
+
+    php artisan migrate
+    
+This will create the tasks table in your database.
+
+### 6. Start the Laravel development server
+
+Run the following command to start the Laravel development server:
+
+    php artisan serve
+
+The server will be running at http://127.0.0.1:8000. You can access the API endpoints through this URL.
+
+### 7. Test the API
+
+You can test the API using tools like Postman, or connect it to any front-end application.
+
+The following are the available API endpoints:
+
+## API Endpoints
+- **GET** /api/tasks: Fetch all tasks.
+- **POST** /api/tasks: Create a new task (requires name).
+- **PUT** /api/tasks/{id}: Update an existing task (requires name).
+- **DELETE** /api/tasks/{id}: Delete a specific task.
+- **DELETE** /api/tasks: Delete all tasks.
+
+  
+### Example of how to use the API:
+
+#### 1. Add a Task (POST request)
+**Endpoint:** /api/tasks
+**Method:** POST
+
+    
+    {
+      "name": "Complete Laravel API tutorial"
+    }
+
+    
+#### 2. Edit a Task (PUT request)
+**Endpoint:** /api/tasks/{id}
+**Method:** PUT
+
+    {
+      "name": "Finish Laravel API tutorial"
+    }
+
+    
+#### 3. Delete a Task (DELETE request)
+**Endpoint:** /api/tasks/{id}
+**Method:** DELETE
+
+No request body is needed. Just pass the id of the task to be deleted.
+
+#### 4. Delete All Tasks (DELETE request)
+**Endpoint:** /api/tasks
+**Method:** DELETE
+
+No request body is needed. This will delete all tasks in the database.
+
+## Front-End Integration
+This API can be integrated with any front-end application such as React, Vue, or mobile applications. The front end can send HTTP requests (using libraries like Axios) to interact with this API.
+
+If you want to use this API with React, here's the front-end repository you can check out:
+
+React Front-End ToDo App
+
+
+Author
+Created by Heba AbdElhamed.
