@@ -23,7 +23,6 @@ Follow these steps to set up the API on your local machine:
 
 Clone the repository to your local machine:
 
-    ```bash
     git clone https://github.com/HebaAbdElhamed/Laravel-Todo-API.git
 
 
